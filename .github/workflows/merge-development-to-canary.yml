@@ -1,0 +1,26 @@
+name: Auto Merge Development to Canary
+
+on:
+  workflow_run:
+    workflows: ["Development Workflow"]
+    types:
+      - completed
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Merge development into canary
+      run: |
+        git checkout canary
+        git merge development
+        git push origin canary

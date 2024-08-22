@@ -1,0 +1,40 @@
+name: Development Workflow
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run tests
+      run: pytest
+
+  prepare-canary:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+    - name: Prepare code for Canary
+      run: echo "Code is ready to be merged into Canary"
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: prepare-canary
+    steps:
+    - name: Notify
+      run: echo "Code is ready to be merged into Canary"

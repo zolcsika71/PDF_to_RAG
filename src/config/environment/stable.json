@@ -1,0 +1,6 @@
+{
+  "database": "prod_db",
+  "debug": false,
+  "logging_level": "ERROR",
+  "api_url": "https://api.yourapp.com"
+}

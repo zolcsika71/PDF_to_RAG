@@ -1,0 +1,26 @@
+name: Auto Merge Canary to Stable
+
+on:
+  workflow_run:
+    workflows: ["Canary Workflow"]
+    types:
+      - completed
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Merge canary into stable
+      run: |
+        git checkout stable
+        git merge canary
+        git push origin stable

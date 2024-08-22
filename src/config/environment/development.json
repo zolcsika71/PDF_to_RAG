@@ -1,0 +1,6 @@
+{
+  "database": "dev_db",
+  "debug": true,
+  "logging_level": "DEBUG",
+  "api_url": "https://dev.api.yourapp.com"
+}

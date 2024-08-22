@@ -1,0 +1,43 @@
+# .gitignore for IntelliJ IDEA and related files
+# User-specific files
+.idea/       # Ignore the entire .idea directory
+.idea/**/workspace.xml
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/dbnavigator.xml
+.idea/**/dynamic.xml
+.idea/**/sqlDataSources.xml
+.idea/**/uiDesigner.xml
+# Plugin-specific files
+.idea/**/gradle.xml
+.idea/**/libraries/
+.idea/**/mongoSettings.xml
+.idea/sonarlint/
+.idea/httpRequests/
+# Build and output directories
+cmake-build-*/
+out/
+.idea_modules/
+logs/
+*.log
+# IDE-specific files
+.idea/
+.idea/replstate.xml
+atlassian-ide-plugin.xml
+# Crashlytics
+com_crashlytics_export_strings.xml
+crashlytics-build.properties
+crashlytics.properties
+fabric.properties
+# Environment and Python files
+.env
+*.py[cod]
+__pycache__/
+# User data
+data/
+# Other
+*.iws
+*.iml
+*.hprof

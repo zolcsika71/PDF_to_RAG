@@ -1,0 +1,6 @@
+{
+  "database": "canary_db",
+  "debug": false,
+  "logging_level": "INFO",
+  "api_url": "https://canary.api.yourapp.com"
+}
